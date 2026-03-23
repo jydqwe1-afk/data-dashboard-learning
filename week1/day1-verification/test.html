@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>环境验证</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .container {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        padding: 40px;
+        max-width: 480px;
+        width: 100%;
+      }
+
+      h1 {
+        color: #1a1a2e;
+        font-size: 24px;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+
+      .subtitle {
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 32px;
+      }
+
+      .checklist {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .check-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px;
+        background: #f8f9fa;
+        border-radius: 10px;
+        transition: transform 0.2s ease;
+      }
+
+      .check-item:hover {
+        transform: translateX(4px);
+      }
+
+      .check-icon {
+        width: 28px;
+        height: 28px;
+        background: #10b981;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .check-icon svg {
+        width: 16px;
+        height: 16px;
+        fill: #fff;
+      }
+
+      .check-text {
+        color: #374151;
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      .footer {
+        margin-top: 32px;
+        padding-top: 20px;
+        border-top: 1px solid #e5e7eb;
+        text-align: center;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: #10b981;
+        font-size: 13px;
+        font-weight: 500;
+      }
+
+      .status-dot {
+        width: 8px;
+        height: 8px;
+        background: #10b981;
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>开发环境验证结果</h1>
+      <p class="subtitle">所有组件已正确配置并正常工作</p>
+
+      <div class="checklist">
+        <div class="check-item">
+          <div class="check-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <span class="check-text">VS Code 插件正常工作</span>
+        </div>
+
+        <div class="check-item">
+          <div class="check-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <span class="check-text">Claude Code 连接成功</span>
+        </div>
+
+        <div class="check-item">
+          <div class="check-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <span class="check-text">Git 配置正确</span>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="status">
+          <span class="status-dot"></span>
+          就绪
+        </div>
+      </div>
+    </div>
+
+    <script>
+      console.log("JavaScript 运行正常");
+    </script>
+  </body>
+</html>
