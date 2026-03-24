@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据看板 - 第2天实战</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- 页面标题栏 -->
+        <header class="dashboard-header">
+            <h1><i class="fas fa-chart-line"></i> 销售数据看板</h1>
+            <p class="subtitle">实时监控关键业务指标 | <span id="current-date">2026年3月24日</span></p>
+        </header>
+
+        <!-- 指标卡片区 - 4个卡片 -->
+        <section class="metrics-grid">
+            <div class="metric-card" id="sales-card">
+                <div class="metric-icon">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <div class="metric-content">
+                    <h3>总销售额</h3>
+                    <p class="metric-value" id="sales-value">¥125,000</p>
+                    <p class="metric-change"><i class="fas fa-arrow-up"></i> 12.5% 较上月</p>
+                </div>
+            </div>
+            
+            <div class="metric-card" id="orders-card">
+                <div class="metric-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="metric-content">
+                    <h3>订单数</h3>
+                    <p class="metric-value" id="orders-value">1,248</p>
+                    <p class="metric-change"><i class="fas fa-arrow-up"></i> 8.3% 较上月</p>
+                </div>
+            </div>
+            
+            <div class="metric-card" id="users-card">
+                <div class="metric-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="metric-content">
+                    <h3>用户增长</h3>
+                    <p class="metric-value" id="users-value">+342</p>
+                    <p class="metric-change"><i class="fas fa-arrow-up"></i> 15.2% 较上月</p>
+                </div>
+            </div>
+            
+            <div class="metric-card" id="conversion-card">
+                <div class="metric-icon">
+                    <i class="fas fa-percentage"></i>
+                </div>
+                <div class="metric-content">
+                    <h3>转化率</h3>
+                    <p class="metric-value" id="conversion-value">4.8%</p>
+                    <p class="metric-change"><i class="fas fa-arrow-down"></i> 0.5% 较上月</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 图表占位区 -->
+        <section class="chart-section">
+            <h2><i class="fas fa-chart-bar"></i> 月度销售趋势</h2>
+            <div class="chart-container">
+                <div class="chart-bar" style="height: 80%;" data-month="1月" data-value="85"></div>
+                <div class="chart-bar" style="height: 65%;" data-month="2月" data-value="65"></div>
+                <div class="chart-bar" style="height: 90%;" data-month="3月" data-value="90"></div>
+                <div class="chart-bar" style="height: 75%;" data-month="4月" data-value="75"></div>
+                <div class="chart-bar" style="height: 95%;" data-month="5月" data-value="95"></div>
+                <div class="chart-bar" style="height: 70%;" data-month="6月" data-value="70"></div>
+            </div>
+            <p class="chart-note">注：柱状图显示过去6个月的销售额（单位：万元）</p>
+        </section>
+
+        <!-- 控制按钮区 -->
+        <section class="control-section">
+            <button id="refresh-btn" class="btn btn-primary">
+                <i class="fas fa-sync-alt"></i> 刷新数据
+            </button>
+            <button id="theme-toggle" class="btn btn-secondary">
+                <i class="fas fa-moon"></i> 切换主题
+            </button>
+        </section>
+
+        <!-- 底部说明 -->
+        <footer class="dashboard-footer">
+            <p>最后更新: <span id="last-updated">2026年3月24日 00:00</span> | 数据刷新频率: 每10秒自动更新</p>
+            <p>© 2026 数据看板实战项目 | 第1周第2天 - 全栈开发学习</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
