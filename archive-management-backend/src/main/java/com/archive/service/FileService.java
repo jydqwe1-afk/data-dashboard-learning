@@ -45,7 +45,7 @@ public class FileService {
         af.setUploadedBy(userId);
         fileMapper.insert(af);
 
-        logProducer.sendLog(userId, archiveId, "upload", "上传文件: " + originalName);
+        try { logProducer.sendLog(userId, archiveId, "upload", "上传文件: " + originalName); } catch (Exception ignored) {}
         return af;
     }
 

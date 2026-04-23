@@ -32,7 +32,7 @@ public class ArchiveController {
         return Result.ok(result);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id:\\d+}")
     public Result<?> detail(@PathVariable Long id) {
         return Result.ok(archiveService.getById(id));
     }
@@ -45,7 +45,7 @@ public class ArchiveController {
         return Result.ok();
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{id:\\d+}")
     public Result<?> update(@PathVariable Long id, @RequestBody Archive archive, Authentication auth) {
         archive.setId(id);
         Long userId = (Long) auth.getDetails();
@@ -53,7 +53,7 @@ public class ArchiveController {
         return Result.ok();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id:\\d+}")
     public Result<?> delete(@PathVariable Long id, Authentication auth) {
         Long userId = (Long) auth.getDetails();
         archiveService.delete(id, userId);

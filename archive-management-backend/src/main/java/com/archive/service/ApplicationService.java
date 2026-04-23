@@ -31,7 +31,7 @@ public class ApplicationService {
     public void create(AccessApplication app) {
         app.setStatus(0);
         appMapper.insert(app);
-        logProducer.sendLog(app.getApplicantId(), app.getArchiveId(), "apply", "提交查档申请");
+        try { logProducer.sendLog(app.getApplicantId(), app.getArchiveId(), "apply", "提交查档申请"); } catch (Exception ignored) {}
     }
 
     public void review(Long id, Long reviewerId, boolean approved, String comment) {
@@ -41,7 +41,7 @@ public class ApplicationService {
         app.setReviewComment(comment);
         app.setReviewedAt(LocalDateTime.now());
         appMapper.updateById(app);
-        logProducer.sendLog(reviewerId, app.getArchiveId(), "review",
-                (approved ? "通过" : "拒绝") + "查档申请");
+        try { logProducer.sendLog(reviewerId, app.getArchiveId(), "review",
+                (approved ? "通过" : "拒绝") + "查档申请"); } catch (Exception ignored) {}
     }
 }

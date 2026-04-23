@@ -33,12 +33,12 @@ public class FileController {
         return Result.ok(af);
     }
 
-    @GetMapping("/{id}/download")
+    @GetMapping("/{id:\\d+}/download")
     public ResponseEntity<FileSystemResource> download(@PathVariable Long id, Authentication auth) throws UnsupportedEncodingException {
         ArchiveFile af = fileService.getFile(id);
         File file = new File(af.getFilePath());
         Long userId = (Long) auth.getDetails();
-        logProducer.sendLog(userId, af.getArchiveId(), "download", "下载文件: " + af.getFileName());
+        try { logProducer.sendLog(userId, af.getArchiveId(), "download", "下载文件: " + af.getFileName()); } catch (Exception ignored) {}
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);

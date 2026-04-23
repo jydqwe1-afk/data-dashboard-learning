@@ -29,7 +29,7 @@ public class UserService {
     }
 
     public void create(User user) {
-        user.setPasswordHash(passwordEncoder.encode(user.getPasswordHash()));
+        user.setPasswordHash(passwordEncoder.encode(user.getPassword()));
         userMapper.insert(user);
     }
 

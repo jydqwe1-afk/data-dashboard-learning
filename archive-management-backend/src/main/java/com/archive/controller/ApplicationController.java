@@ -36,7 +36,7 @@ public class ApplicationController {
         return Result.ok(appService.pendingReviews(null, page, size));
     }
 
-    @PutMapping("/{id}/review")
+    @PutMapping("/{id:\\d+}/review")
     public Result<?> review(@PathVariable Long id, @RequestBody Map<String, Object> body, Authentication auth) {
         Long userId = (Long) auth.getDetails();
         boolean approved = "approve".equals(body.get("action"));

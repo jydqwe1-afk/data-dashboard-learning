@@ -20,9 +20,11 @@ public class ArchiveService {
     private RedisTemplate<String, Object> redisTemplate;
 
     public Page<Archive> listPage(int page, int size, Long folderId, String keyword) {
-        String cacheKey = "archives:" + page + ":" + size + ":" + folderId + ":" + keyword;
-        Object cached = redisTemplate.opsForValue().get(cacheKey);
-        if (cached != null) return (Page<Archive>) cached;
+        try {
+            String cacheKey = "archives:" + page + ":" + size + ":" + folderId + ":" + keyword;
+            Object cached = redisTemplate.opsForValue().get(cacheKey);
+            if (cached != null) return (Page<Archive>) cached;
+        } catch (Exception ignored) {}
 
         LambdaQueryWrapper<Archive> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(Archive::getStatus, 1);
@@ -30,7 +32,11 @@ public class ArchiveService {
         if (keyword != null && !keyword.isEmpty()) wrapper.like(Archive::getTitle, keyword);
         wrapper.orderByDesc(Archive::getCreatedAt);
         Page<Archive> result = archiveMapper.selectPage(new Page<>(page, size), wrapper);
-        redisTemplate.opsForValue().set(cacheKey, result, 5, TimeUnit.MINUTES);
+
+        try {
+            String cacheKey = "archives:" + page + ":" + size + ":" + folderId + ":" + keyword;
+            redisTemplate.opsForValue().set(cacheKey, result, 5, TimeUnit.MINUTES);
+        } catch (Exception ignored) {}
         return result;
     }
 
@@ -38,13 +44,13 @@ public class ArchiveService {
 
     public void create(Archive archive, Long userId) {
         archiveMapper.insert(archive);
-        logProducer.sendLog(userId, archive.getId(), "create", "创建档案: " + archive.getTitle());
+        try { logProducer.sendLog(userId, archive.getId(), "create", "创建档案: " + archive.getTitle()); } catch (Exception ignored) {}
         clearCache();
     }
 
     public void update(Archive archive, Long userId) {
         archiveMapper.updateById(archive);
-        logProducer.sendLog(userId, archive.getId(), "edit", "编辑档案: " + archive.getTitle());
+        try { logProducer.sendLog(userId, archive.getId(), "edit", "编辑档案: " + archive.getTitle()); } catch (Exception ignored) {}
         clearCache();
     }
 
@@ -52,11 +58,11 @@ public class ArchiveService {
         Archive archive = archiveMapper.selectById(id);
         archive.setStatus(0);
         archiveMapper.updateById(archive);
-        logProducer.sendLog(userId, id, "delete", "删除档案: " + archive.getTitle());
+        try { logProducer.sendLog(userId, id, "delete", "删除档案: " + archive.getTitle()); } catch (Exception ignored) {}
         clearCache();
     }
 
     private void clearCache() {
-        redisTemplate.keys("archives:*").forEach(redisTemplate::delete);
+        try { redisTemplate.keys("archives:*").forEach(redisTemplate::delete); } catch (Exception ignored) {}
     }
 }
