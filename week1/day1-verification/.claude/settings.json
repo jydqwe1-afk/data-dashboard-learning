@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "Bash(gh repo:*)",
+      "Bash(curl -s https://api.github.com/repos/obra/superpowers)",
+      "Bash(git clone:*)",
+      "Read(//tmp/**)",
+      "Bash(/plugin marketplace:*)",
+      "Read(//c/Users/Administrator/.claude/plugins/**)",
+      "Read(//c/Users/Administrator/.claude/**)",
+      "Bash(where claude:*)",
+      "Bash(claude plugin:*)",
+      "Read(//c/Program Files/Git/bin/**)",
+      "Read(//c/Program Files \\(x86\\)/Git/bin/**)",
+      "Read(//usr/bin/**)",
+      "Read(//bin/**)",
+      "Bash(CLAUDE_CODE_GIT_BASH_PATH=/usr/bin/bash.exe claude plugin install superpowers@superpowers-marketplace)",
+      "Read(//e/PF/Git//**)",
+      "Read(//e/Program Files/**)",
+      "Read(//c//**)",
+      "Bash(CLAUDE_CODE_GIT_BASH_PATH=\"/e/PF/Git/usr/bin/bash.exe\" claude plugin install superpowers@superpowers-marketplace)",
+      "Bash(CLAUDE_CODE_GIT_BASH_PATH=\"E:\\\\\\\\PF\\\\\\\\Git\\\\\\\\usr\\\\\\\\bin\\\\\\\\bash.exe\" claude plugin install superpowers@superpowers-marketplace)",
+      "Bash(claude --version)",
+      "Bash(CLAUDE_CODE_GIT_BASH_PATH=\"E:\\\\\\\\PF\\\\\\\\Git\\\\\\\\usr\\\\\\\\bin\\\\\\\\bash.exe\" claude plugin install obra/superpowers)",
+      "Bash(python3 -c \"import json; json.load\\(open\\('/c/Users/Administrator/.claude/plugins/known_marketplaces.json'\\)\\)\")",
+      "Bash(python3 -c \"import json; json.load\\(open\\('C:/Users/Administrator/.claude/plugins/known_marketplaces.json'\\)\\)\")",
+      "Bash(python3 -c ':*)",
+      "Bash(python3 -c \"import json; json.load\\(open\\(r'C:\\\\Users\\\\Administrator\\\\.claude\\\\plugins\\\\known_marketplaces.json'\\)\\); print\\('JSON valid'\\)\")",
+      "Bash(CLAUDE_CODE_GIT_BASH_PATH=\"E:\\\\\\\\PF\\\\\\\\Git\\\\\\\\usr\\\\\\\\bin\\\\\\\\bash.exe\" claude plugin install superpowers@obra/superpowers-marketplace)",
+      "Bash(cat ~/.claude/plugins/cache/superpowers-marketplace/superpowers/5.0.7/hooks/*/SKILL.md)",
+      "Read(//c/Users/Administrator/data-dashboard-learning/**)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\Administrator\\.claude\\plugins\\marketplaces\\superpowers-marketplace"
+    ]
+  }
+}

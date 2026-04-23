@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/Administrator/data-dashboard-learning/docs/superpowers/plans/**)",
+      "Bash(npx vue-cli-service *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Read(//c/Users/Administrator/data-dashboard-learning/docs/**)",
+      "Read(//c/Users/Administrator/data-dashboard-learning/**)",
+      "Read(//c/Program Files/**)",
+      "Read(//c/Program Files \\(x86\\)/**)",
+      "Read(//c/Users/Administrator/**)",
+      "Bash(cmd.exe /c \"where java\")",
+      "Bash(cmd.exe /c \"where mvn\")",
+      "Bash(java -version)",
+      "Bash(mvn -version)",
+      "Bash(cmd.exe /c \"java -version\")",
+      "Bash(cmd.exe /c \"mvn -version\")",
+      "Read(//c//**)",
+      "Bash(powershell.exe -Command \"Get-Command java -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source\")",
+      "Bash(powershell.exe -Command \"[Environment]::GetEnvironmentVariable\\('JAVA_HOME', 'User'\\)\")",
+      "Bash(powershell.exe -Command \"[Environment]::GetEnvironmentVariable\\('JAVA_HOME', 'Machine'\\)\")",
+      "Bash(powershell.exe -Command \"[Environment]::GetEnvironmentVariable\\('MAVEN_HOME', 'User'\\)\")",
+      "Bash(powershell.exe -Command \"[Environment]::GetEnvironmentVariable\\('Path', 'User'\\)\")",
+      "Bash(powershell.exe -Command \"[Console]::OutputEncoding = [System.Text.Encoding]::UTF8; [Environment]::GetEnvironmentVariable\\('JAVA_HOME', 'User'\\)\")",
+      "Bash(powershell.exe -Command \"[Console]::OutputEncoding = [System.Text.Encoding]::UTF8; [Environment]::GetEnvironmentVariable\\('Path', 'User'\\)\")",
+      "Read(//d//**)",
+      "Bash(powershell.exe -Command \"Get-ChildItem 'D:\\\\' -Directory | Select-Object -ExpandProperty Name\")",
+      "Read(//d/B办公软件//**)",
+      "Bash(export JAVA_HOME=\"/d/B办公软件/jdk-26.0.1\")",
+      "Bash(export MAVEN_HOME=\"/d/B办公软件/apache-maven-3.9.15\")",
+      "Bash(export PATH=\"$JAVA_HOME/bin:$MAVEN_HOME/bin:$PATH\")"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\Administrator\\data-dashboard-learning\\archive-management-backend"
+    ]
+  }
+}

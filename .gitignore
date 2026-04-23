@@ -1,0 +1,31 @@
+# Java build
+target/
+*.class
+*.jar
+*.war
+
+# Database
+*.db
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Node
+node_modules/
+dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Claude local settings
+.claude/settings.local.json
